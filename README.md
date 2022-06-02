@@ -11,6 +11,7 @@
 - train data에서 중복 제거 (11668 → 11661)
 - regex를 사용하여 한글, 숫자만 남기고 문장 전처리
 - train, valid data를 9:1로 나누어 실험 진행
+
 | DataSet | Size |
 | --- | --- |
 | Train | 10494 |
@@ -25,9 +26,11 @@ STS benchmark 에서 좋은 성능을 보였던 pre-trained model들을 비교, 
 - 한국어로 사전 학습된 BERT 모델입니다.
 - **BERT: Bidirectional Encoder Representations from Transformers**
     - Transformer 모델의 인코딩 layer에 Masked sentence 두 개를 붙여 입력하고 mask토큰과 다음 문장을 예측하는 사전학습을 한 모델입니다.
+
 | Model | Layers | Embedding Size | Hidden Size | # heads |
 | --- | --- | --- | --- | --- |
 | KLUE-BERT-base | 12 | 768 | 768 | 12 |
+
 ### 2-2. KLUE-RoBERTa 
 [reference](https://huggingface.co/roberta-base)
 - 해당 모델은 RoBERTa를 KLUE dataset을 통해 사전 학습 시킨 모델이다. 사전 학습된 모델의 크기에 따라 small, base, large로 나누어 집니다.
@@ -36,10 +39,12 @@ STS benchmark 에서 좋은 성능을 보였던 pre-trained model들을 비교, 
         - BERT 보다 더 많은 데이터를 긴 시간 동안 큰 batch size와 더 긴 sequence를 이용하여 학습 시킨 모델
         - Dynamic Masking으로 다양성 확보
         - NSP loss제거
+
 | Model | Layers | Embedding Size | Hidden Size | # heads |
 | --- | --- | --- | --- | --- |
 | KLUE-RoBERTa-base | 12 | 768 | 768 | 12 |
 | KLUE-RoBERTa-large | 24 | 1024 | 1024 | 16 |
+
 ### 2-3. KoELECTRA-base-v3-discriminator
 [reference](https://huggingface.co/monologg/koelectra-base-v3-discriminator)
 - v3의 KoELECTRA는 34G의 한국어 Corpus를 이용하여 사전 학습 시킨 모델입니다.
@@ -48,9 +53,11 @@ STS benchmark 에서 좋은 성능을 보였던 pre-trained model들을 비교, 
         - generator는 MLM(Masked Language Model) 로 대표적으로 BERT 등이 있습니다.
     - Replaced Token Detection(RTD) 방식으로 사전 학습을 진행하여 모든 input token에 대해 학습합니다.
         - RTD : 각 token이 generator에 의해 생성된 token인지, 원래 input token인지 판단합니다.(이진 분류)
+
 | Model | Layers | Embedding Size | Hidden Size | # heads |
 | --- | --- | --- | --- | --- |
 | KoELECTRA-base-v3-discriminator | 12 | 768 | 256 | 4 |
+
 ### 2-4. sentence RoBERTa
 
 - 코사인 유사도를 사용하여 비교할 수 있는 의미 있는 문장 임베딩을 도출하기 위해
@@ -59,13 +66,16 @@ BERT를 개선하여 Siamese and triplet network 구조를 사용하는 모델 �
     - sBERT를 학습하는 대표적 방법인 NLI와 STS문제를 푸는 것 중 STS문제를 풀기 위해 사용하였습니다.
         - 문장을 각각 BERT의 입력으로 넣고 mean pooling을 통해 문장 임베딩 벡터를 얻습니다.
         - 두 벡터의 코사인 유사도를 구한 후 레이블 유사도와의 평균제곱오차(MSE)를 최소화하는 방식으로 학습합니다.
+
 | Model | Layers | Embedding Size | Hidden Size | # heads |
 | --- | --- | --- | --- | --- |
 | sentence-RoBERTa |  |  |  |  |
+
 ### 2-5. 최종 모델
 - 최종 모델
 - 최종 모델 채택 이유
 - 실험 결과, 모델 별 가장 높은 성능은 다음 표와 같습니다.
+
 | Mode | Pearsons’ r | F1_score | Loss | Epoch | BatchSize | Optimizer | Learning Rate |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | KLUE-BERT-base | 0.8264 | 0.8193 | _ | 25 | 56 | AdamW | 3e-5 |
@@ -122,10 +132,10 @@ Train Data의 binary-label 분포
 - 한계 : WordNet만을 단순히 바꿔서 결과를 내기 때문에 의미가 변형되는 경우가 생김 → 안전하게 데이터를 증강 하기 위해 RD, RS만 사용
     
     
-    |  | 원본 데이터 | 증강 데이터 |
-    | --- | --- | --- |
-    | Train | 11668 | 62995 |
-    | Test | 519 | 6353 |
+|  | 원본 데이터 | 증강 데이터 |
+| --- | --- | --- |
+| Train | 11668 | 62995 |
+| Test | 519 | 6353 |
     
 ### 4-2. Data Collect
 프로젝트에 사용된 데이터 셋은 약 1만 개의 문장 쌍 입니다.
