@@ -1,4 +1,5 @@
-# NLP_project
+# NLP_project 
+[REPORT](https://illustrious-fifth-df8.notion.site/STS-Project-Report-b65daae1dd27419c837304a533b792d6)
 ## 과제 목표
 - 한국어 문장의 유사도 분석 모델 훈련 및 BEST 모델 API 구현
 - 두 개의 한국어 분장을 입력 받아 두 문장의 의미적 유사도를 출력하는 사용자 interface 구현
