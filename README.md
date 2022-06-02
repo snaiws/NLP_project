@@ -165,6 +165,8 @@ KoELECTRA 적용 예시 Train Loss
 
 ## 5. 결과 및 배포
 Flask를 사용하여 구현했습니다.
+![Animation](https://user-images.githubusercontent.com/50479962/171641367-1944b330-e61e-4bc9-a7f8-f95843585736.gif)
+
 
 ## 6. 한계 및 개선 방안
 ### 6-1. 한계
