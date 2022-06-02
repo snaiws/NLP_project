@@ -80,9 +80,9 @@ BERT를 개선하여 Siamese and triplet network 구조를 사용하는 모델 �
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | KLUE-BERT-base | 0.8264 | 0.8193 | _ | 25 | 56 | AdamW | 3e-5 |
 | KLUE-RoBERTa-base | 0.9251 | 0.8512 | 0.3351 | 5 | 58 | AdamW | 2e-5 |
-| KLUE-RoBERTa-large | 0.7982 | 0.8440 | _ | 5 | 20(고정) | AdamW | 2e-5 |
-| KoELECTRA-base-v3-discriminator | 0.9228 | 0.8646 | 0.4084 | 20 | 32 | AdamW | 5e-5 |
-| sentence-RoBERTa |  |  |  |  |  | AdamW |  |
+| KLUE-RoBERTa-large | 0.7982 | 0.8440 | _ | 5/25(early stopping) | 20(고정) | AdamW | 2e-5 |
+| KoELECTRA-base-v3-discriminator | 0.9228 | 0.8646 | 0.4084 | 4/20(early stopping) | 32 | AdamW | 5e-5 |
+| sentence-RoBERTa | 0.8853 |  |  |  |  | AdamW |  |
 
 
 ## 3. 훈련 및 평가
