@@ -2,7 +2,6 @@
 ## 과제 목표
 - 한국어 문장의 유사도 분석 모델 훈련 및 BEST 모델 API 구현
 - 두 개의 한국어 분장을 입력 받아 두 문장의 의미적 유사도를 출력하는 사용자 interface 구현
----
 ## 1. 데이터 전처리
 - Data Set
     - KLUE-STS (11668 x 6)
@@ -18,7 +17,7 @@
 | Valid | 1167 |
 | Test | 519 |
 
----
+
 ## 2. 모델 선정
 STS benchmark 에서 좋은 성능을 보였던 pre-trained model들을 비교, 실험하여 선정했습니다.
 ### 2-1. KLUE-BERT-base
@@ -75,7 +74,7 @@ BERT를 개선하여 Siamese and triplet network 구조를 사용하는 모델 �
 | KoELECTRA-base-v3-discriminator | 0.9228 | 0.8646 | 0.4084 | 20 | 32 | AdamW | 5e-5 |
 | sentence-RoBERTa |  |  |  |  |  | AdamW |  |
 
----
+
 ## 3. 훈련 및 평가
 ### 3-1. Train
 - Regression Task
@@ -101,7 +100,7 @@ Optuna를 이용하여 최적의 batch_size와 learning_rate를 찾았습니다.
     - pruner는 epoch마다 결과를 기록합니다.
     - pruner는 알고리즘에 따라 epoch를 더 진행할 필요가 없다고 판단되면 trial의 이른 epoch 단계에서 break 하고 다음 trial로 넘어가는 기능입니다.
     - 여러 pruner 가운데 공식 문서의 추천에 따라 TPE sampler와 제일 어울린다고 하는 hyperband pruner를 사용했습니다.
----
+
 ## 4. 실험
 ### 4-1. Data Augmentation
 Data EDA 결과, Data의 분포가 0 ≤ label≤ 5의 경우, 일정하지 않았습니다.    
@@ -152,12 +151,12 @@ KoELECTRA 적용 예시 Train Loss
 - 학습을 완료한 후, Validation Loss와 Train Loss를 비교하여 좀 더 직관적으로 확인할 수 있도록 시각화 했습니다.
 ![실험 추이.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/059d9c3b-5349-4798-84a3-545d14fee80f/실험_추이.png)
 - 커스텀 모델 아키텍쳐를 시각화하기 위해 torchviz와 hidden layer와 bertviz 라이브러리를 사용했습니다.
----
+
 ## 5. Model API
 Flask를 사용하여 구현했습니다.
----
+
 ## 6. 결론
----
+
 ## 7. 한계 및 개선 방안
 ### 7-1. 한계
 - GPU 용량의 한계로 인해 대용량 모델을 돌리지 못했던 점
@@ -169,7 +168,7 @@ Flask를 사용하여 구현했습니다.
 - 추가적인 layer를 시도해보지 못한 점
 - 실패한 시도를 포함하여 모든 기록을 세세하기 기록하지 않은 점
 - 진행사항이 옳은지 판단이 안되고 서로의 코드를 검증할 여력이 없음
----
+
 ### 7-2. 개선 방안
 - 알려진 모델의 하이퍼 파라미터 튜닝 시, 논문의 parameter를 참고하여 약간의 후보군에 대해 grid search하는 방안을 제시합니다.
 - 데이터에서 pronoun과 noun을 뽑아 category를 만든 후 같은 category에 해당하는 단어들로 치환하여 증강하는 방안을 제시합니다.
@@ -182,16 +181,16 @@ Flask를 사용하여 구현했습니다.
 - time 라이브러리를 사용하여 훈련마다 기록을 저장한다면, 더 객관적이고 의미 있는 보고서를 작성할 수 있을 것으로 기대됩니다.
 - 모델을 쪼개고 GPU를 직렬로 연결하여 파이프 라인 방식으로 연속으로 처리하는 방법을 사용한다면, 대용량 모델을 처리할 수 있을 것으로 기대됩니다.
 - 기획 단계에서 목표와 제한을 뚜렷하게 정하고 Test Driven Development를 통해 프로젝트를 진행하는 방법으로 확신을 가지고 진행할 수 있을 것으로 기대됩니다.
----
+
 # 8. Reference
 
 [optuna tutorial](https://towardsdatascience.com/hyperparameter-tuning-of-neural-networks-with-optuna-and-pytorch-22e179efc837)
 
 [optuna 공식문서](https://optuna.readthedocs.io/en/stable/index.html)
----
+
 ## author
 https://github.com/snaiws
 https://github.com/minshyee
 https://github.com/lyuiixp
 https://github.com/junghoum
----
+
