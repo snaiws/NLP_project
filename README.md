@@ -105,11 +105,11 @@ Optuna를 이용하여 최적의 batch_size와 learning_rate를 찾았습니다.
 ### 4-1. Data Augmentation
 Data EDA 결과, Data의 분포가 0 ≤ label≤ 5의 경우, 일정하지 않았습니다.    
 
-![Train Data의 real-label 분포](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/7aeee047-131b-4afc-af13-2f686ff8b3ea/label_분포.png)
+![Train Data의 real-label 분포](https://github.com/snaiws/NLP_project/blob/main/image/1.png)
 
 Train Data의 real-label 분포
 
-![Train Data의 binary-label 분포](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/95e2e6e4-9d84-435c-a267-415b3f40bb60/Untitled.png)
+![Train Data의 binary-label 분포](https://github.com/snaiws/NLP_project/blob/main/image/2.png)
 
 Train Data의 binary-label 분포
 
@@ -134,22 +134,22 @@ Train Data의 binary-label 분포
 
 이를 보완하고자, 문장 쌍의 데이터를 추가하여 모델의 성능을 향상 시키고자 실험을 진행했습니다.
 - KorSTS
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/0ed0f262-76b3-428f-ad42-32754465964a/Untitled.png)
+![Untitled](https://github.com/snaiws/NLP_project/blob/main/image/3.png)
 ### 4-3. Visualization
 모델의 학습을 Tracking 하고자 Visualization을 시도했습니다.
 
 Tensorboard를 이용하여 모델 학습 중에  log를 남기고, 동적 시각화를 구현했습니다. 
 
-![KoELECTRA 적용 예시 Learning Rate](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/00f96970-c3fe-4eea-9617-e219a7471ad5/Untitled.png)
+![KoELECTRA 적용 예시 Learning Rate](https://github.com/snaiws/NLP_project/blob/main/image/4.png)
 
 KoELECTRA 적용 예시 Learning Rate
 
-![KoELECTRA 적용 예시 Train Loss](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e8f283bd-fdc2-470f-9f98-e8e253c9f7fd/Untitled.png)
+![KoELECTRA 적용 예시 Train Loss](https://github.com/snaiws/NLP_project/blob/main/image/5.png)
 
 KoELECTRA 적용 예시 Train Loss
 
 - 학습을 완료한 후, Validation Loss와 Train Loss를 비교하여 좀 더 직관적으로 확인할 수 있도록 시각화 했습니다.
-![실험 추이.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/059d9c3b-5349-4798-84a3-545d14fee80f/실험_추이.png)
+![실험 추이.png](https://github.com/snaiws/NLP_project/blob/main/image/6.png)
 - 커스텀 모델 아키텍쳐를 시각화하기 위해 torchviz와 hidden layer와 bertviz 라이브러리를 사용했습니다.
 
 ## 5. Model API
@@ -174,7 +174,7 @@ Flask를 사용하여 구현했습니다.
 - 데이터에서 pronoun과 noun을 뽑아 category를 만든 후 같은 category에 해당하는 단어들로 치환하여 증강하는 방안을 제시합니다.
 - 아래 그래프는 BERT tokenizer를 거친 sentence1 데이터의 토큰 길이 분포입니다.
     
-    ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/1375f962-2f31-4162-84f4-0d5d051ccca4/Untitled.png)
+    ![Untitled](https://github.com/snaiws/NLP_project/blob/main/image/7.png)
     
     토큰 길이 기준으로 elbow 지점을 잘라내어 짧은 토큰들로만 하이퍼 파라미터 튜닝을 시도한다면, 더 빠른 결과를 얻을 수 있을 것으로 기대됩니다.
 - Pytorch nn.Module 클래스의 get_parameters 메소드의 결과를 사용한다면, 직접 시각화를 시도해볼 수 있을 것으로 기대됩니다.
