@@ -49,6 +49,7 @@ STS benchmark 에서 좋은 성능을 보였던 pre-trained model들을 비교, 
 ### 2-3. KoELECTRA-base-v3-discriminator
 [reference](https://huggingface.co/monologg/koelectra-base-v3-discriminator)
 - v3의 KoELECTRA는 34G의 한국어 Corpus를 이용하여 사전 학습 시킨 모델입니다.
+- fine_tuning 된 모델의 코드를 GitHub에서 발췌 하여 사용하였습니다.
 - **ELECTRA : Efficiently Learning an Encoder that Classifies Token Replacements Accurately**
     - GAN과 비슷한 형태로 generator와 discriminator가 존재합니다.
         - generator는 MLM(Masked Language Model) 로 대표적으로 BERT 등이 있습니다.
@@ -70,8 +71,8 @@ BERT를 개선하여 Siamese and triplet network 구조를 사용하는 모델 �
 
 
 ### 2-5. 최종 모델
-- 최종 모델
-- 최종 모델 채택 이유
+- 최종 모델 : KoELECTRA-base-v3-discriminator (fine-tune ver.)
+- 최종 모델 채택 이유 : f1 score가 높습니다.
 - 실험 결과, 모델 별 가장 높은 성능은 다음 표와 같습니다.
 
 | Mode | Pearsons’ r | F1_score | Loss | Epoch | BatchSize | Optimizer | Learning Rate |
