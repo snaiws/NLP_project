@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STS PROJECT</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/shorthandcss@1.1.1/dist/shorthand.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli:200,300,400,500,600,700,800,900&display=swap" />
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css" />
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+</head>
+<style>
+    body{
+        background-image: url('https://cdn.pixabay.com/photo/2022/05/30/10/34/starry-sky-7230961__340.jpg');
+        /* background-position: center;
+        background-repeat : no-repeat;
+        background-size : cover ;  */
+    }
+</style>
+
+
+<body class="bg-black muli">
+    </nav>
+
+    <!-- hero section -->
+    <section id="home" class="min-h-100vh flex justify-start items-center">
+        <div class="mx-5 md-mx-l5">
+            </div>
+            <form method = "POST", action="{{url_for('predict')}}">
+            <div>
+                <h1 class="white fs-l2 lh-3 md-fs-xl1 md-lh-1 fw-900 "><center>NLP <br />STS TEST</h1></center>
+                <div class="br-8 mt-10 inline-flex">
+                    <input type="text"
+                        class="input-lg half bw-0 fw-200 bg-indigo-lightest-10 white ph-indigo-lightest focus-white opacity-80 fs-s3 py-5 min-w-25vw br-r-0"
+                        placeholder="question1", name='question1'>
+                    
+                    
+                        
+                    <input type="text"
+                        class="input-lg half bw-0 fw-200 bg-indigo-lightest-10 white ph-indigo-lightest focus-white opacity-80 fs-s3 py-5 min-w-25vw br-r-0"
+                        placeholder="question2", name='question2'>
+                    <button
+                        class="button-lg bg-indigo-lightest-20 indigo-lightest focus-white fw-300 fs-s3 mr-0 br-l-0">Compare</button>
+                           
+                </div>
+                <!-- <div class="white opacity-20 fs-s3 mt-3">No credit card required</span> question1 칸 밑 -->
+            </div>
+        </form>
+        </div>
+    </section>
+
+    <!-- features -->
+    <!-- <section id="features" class="p-10 md-p-l5"> -->
+        <div class="flex flex-column md-flex-row mx-auto">
+            <div class="w-100pc md-w-40pc">
+                <div class="br-8 p-5 m-5">
+                    <!-- <div class="flex justify-center items-center bg-indigo-lightest-10 white w-l5 h-l5 br-round mb-5"><i
+                            data-feather="inbox" class="w-l5"></i></div>  --> 사진
+                    <h4 class="white fw-600 fs-m3 mb-5">BERT</h4>
+                    <div class="indigo-lightest fw-600 fs-m1 lh-3 opacity-50">This is a release of 24 smaller BERT models (English only, uncased, trained with WordPiece masking) referenced in Well-Read Students Learn Better: On the Importance of Pre-training Compact Models.
+
+                    </div>
+                    <a href="https://github.com/google-research/bert/blob/master/README.md"
+                        class="mt-5 button bg-indigo-lightest-10 fs-s3 white no-underline hover-opacity-100 hover-scale-up-1 ease-300">Read</a>
+                </div>
+            </div>
+            <div class="w-100pc md-w-40pc">
+                <div class="br-8 p-5 m-5">
+                    <!-- <div class="flex justify-center items-center bg-indigo-lightest-10 white w-l5 h-l5 br-round mb-5"><i
+                            data-feather="cpu" class="w-l5"></i></div> --> 사진
+                    <h4 class="white fw-600 fs-m3 mb-5">RoBERTa</h4>
+                    <div class="indigo-lightest fw-600 fs-m1 opacity-50">RoBERTa iterates on BERT's pretraining procedure, including training the model longer, with bigger batches over more</div>
+                    <a href="https://github.com/facebookresearch/fairseq/blob/main/examples/roberta/README.md"
+                        class="mt-5 button bg-indigo-lightest-10 fs-s3 white no-underline hover-opacity-100 hover-scale-up-1 ease-300">Read</a>
+                </div>
+            </div>
+            
+            <div class="w-100pc md-w-40pc">
+                <div class="br-8 p-5 m-5">
+                    <!-- <div class="flex justify-center items-center bg-indigo-lightest-10 white w-l5 h-l5 br-round mb-5"><i
+                            data-feather="database" class="w-l5"></i></div> --> 사진
+                    <h4 class="white fw-600 fs-m3 mb-5">Learning Data</h4>
+                    <div class="indigo-lightest fw-600 fs-m1 opacity-50">KLUE STS - To diversify domain and style of annotation corpus, we collect sentences from AIRBNB (colloquial review), policy(formal news), and paraKQC(smart home queries).</div>
+                    
+                    <a href="https://klue-benchmark.com/tasks/67/data/description"
+                        class="mt-5 button bg-indigo-lightest-10 fs-s3 white no-underline hover-opacity-100 hover-scale-up-1 ease-300">Read</a>
+                        <div class="indigo-lightest fw-600 fs-m1 opacity-50">KorNLU - We introduce KorNLI and KorSTS, which are NLI and STS datasets in Korean.</div>
+
+                        <a href="https://github.com/kakaobrain/KorNLUDatasets"
+                            class="mt-5 button bg-indigo-lightest-10 fs-s3 white no-underline hover-opacity-100 hover-scale-up-1 ease-300">Read</a>
+                        
+                            <div class="indigo-lightest fw-600 fs-m1 opacity-50">Question_pair - 짝 지어진 두 개의 질문이 같은 질문인지 다른 질문인지 핸드 레이블을 달아둔 데이터.</div>
+
+                            <a href="https://github.com/songys/Question_pair"
+                                class="mt-5 button bg-indigo-lightest-10 fs-s3 white no-underline hover-opacity-100 hover-scale-up-1 ease-300">Read</a>
+                    </div>
+
+                        
+                    </div>
+                    
+                </div>
+
+        </div>
+    </section>
+
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+</body>
+
+</html>
