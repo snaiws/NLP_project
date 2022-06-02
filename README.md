@@ -80,7 +80,7 @@ BERT를 개선하여 Siamese and triplet network 구조를 사용하는 모델 �
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | KLUE-BERT-base | 0.8264 | 0.8193 | _ | 25 | 56 | AdamW | 3e-5 |
 | KLUE-RoBERTa-base | 0.9251 | 0.8512 | 0.3351 | 5 | 58 | AdamW | 2e-5 |
-| KLUE-RoBERTa-large |  |  |  |  |  | AdamW |  |
+| KLUE-RoBERTa-large | 0.7982 | 0.8440 | _ | 5 | 20(고정) | AdamW | 2e-5 |
 | KoELECTRA-base-v3-discriminator | 0.9228 | 0.8646 | 0.4084 | 20 | 32 | AdamW | 5e-5 |
 | sentence-RoBERTa |  |  |  |  |  | AdamW |  |
 
@@ -186,7 +186,7 @@ Flask를 사용하여 구현했습니다.
     
     ![Untitled](https://github.com/snaiws/NLP_project/blob/main/image/7.png)
     
-    토큰 길이 기준으로 elbow 지점을 잘라내어 짧은 토큰들로만 하이퍼 파라미터 튜닝을 시도한다면, 더 빠른 결과를 얻을 수 있을 것으로 기대됩니다.
+    토큰 길이 기준으로 elbow 지점을 잘라내어 짧은 토큰들로만 학습 후 긴 토큰들을 추가학습하는 방법으로 더 빠른 결과를 얻을 수 있을 것으로 기대됩니다.
 - Pytorch nn.Module 클래스의 get_parameters 메소드의 결과를 사용한다면, 직접 시각화를 시도해볼 수 있을 것으로 기대됩니다.
 - time 라이브러리를 사용하여 훈련마다 기록을 저장한다면, 더 객관적이고 의미 있는 보고서를 작성할 수 있을 것으로 기대됩니다.
 - 모델을 쪼개고 GPU를 직렬로 연결하여 파이프 라인 방식으로 연속으로 처리하는 방법을 사용한다면, 대용량 모델을 처리할 수 있을 것으로 기대됩니다.
