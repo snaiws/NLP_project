@@ -68,9 +68,6 @@ BERT를 개선하여 Siamese and triplet network 구조를 사용하는 모델 �
         - 문장을 각각 BERT의 입력으로 넣고 mean pooling을 통해 문장 임베딩 벡터를 얻습니다.
         - 두 벡터의 코사인 유사도를 구한 후 레이블 유사도와의 평균제곱오차(MSE)를 최소화하는 방식으로 학습합니다.
 
-| Model | Layers | Embedding Size | Hidden Size | # heads |
-| --- | --- | --- | --- | --- |
-| sentence-RoBERTa |  |  |  |  |
 
 ### 2-5. 최종 모델
 - 최종 모델
