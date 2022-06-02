@@ -163,13 +163,11 @@ KoELECTRA 적용 예시 Train Loss
 ![실험 추이.png](https://github.com/snaiws/NLP_project/blob/main/image/6.png)
 - 커스텀 모델 아키텍쳐를 시각화하기 위해 torchviz와 hidden layer와 bertviz 라이브러리를 사용했습니다.
 
-## 5. Model API
+## 5. 결과 및 배포
 Flask를 사용하여 구현했습니다.
 
-## 6. 결론
-
-## 7. 한계 및 개선 방안
-### 7-1. 한계
+## 6. 한계 및 개선 방안
+### 6-1. 한계
 - GPU 용량의 한계로 인해 대용량 모델을 돌리지 못했던 점
 - loss 함수와 optimizer를 비교해보지 못한 점
 - output layer를 여러 방식으로 시도해보지 못한 점
@@ -180,7 +178,7 @@ Flask를 사용하여 구현했습니다.
 - 실패한 시도를 포함하여 모든 기록을 세세하기 기록하지 않은 점
 - 진행사항이 옳은지 판단이 안되고 서로의 코드를 검증할 여력이 없음
 
-### 7-2. 개선 방안
+### 6-2. 개선 방안
 - 알려진 모델의 하이퍼 파라미터 튜닝 시, 논문의 parameter를 참고하여 약간의 후보군에 대해 grid search하는 방안을 제시합니다.
 - 데이터에서 pronoun과 noun을 뽑아 category를 만든 후 같은 category에 해당하는 단어들로 치환하여 증강하는 방안을 제시합니다.
 - 아래 그래프는 BERT tokenizer를 거친 sentence1 데이터의 토큰 길이 분포입니다.
@@ -193,7 +191,7 @@ Flask를 사용하여 구현했습니다.
 - 모델을 쪼개고 GPU를 직렬로 연결하여 파이프 라인 방식으로 연속으로 처리하는 방법을 사용한다면, 대용량 모델을 처리할 수 있을 것으로 기대됩니다.
 - 기획 단계에서 목표와 제한을 뚜렷하게 정하고 Test Driven Development를 통해 프로젝트를 진행하는 방법으로 확신을 가지고 진행할 수 있을 것으로 기대됩니다.
 
-# 8. Reference
+# 7. Reference
 
 [optuna tutorial](https://towardsdatascience.com/hyperparameter-tuning-of-neural-networks-with-optuna-and-pytorch-22e179efc837)
 
